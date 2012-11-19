@@ -31,8 +31,7 @@
 
 (defn capture
   [region]
-  (.capture region)
-  region)
+  (.capture region))
 
 (defn score
   [region]

@@ -28,3 +28,36 @@
   [(.getX loc) 
    (.getY loc) 
    (.getId (.getScreen loc))])
+
+(defn- set-static-double
+  [klass field value]
+  (let [f (.getDeclaredField klass field)]
+    (.setAccessible f true)
+    (.setDouble f klass (double value))))
+
+(defn- set-static-float
+  [klass field value]
+  (let [f (.getDeclaredField klass field)]
+    (.setAccessible f true)
+    (.setFloat f klass (float value))))
+
+; default: 0.5
+(defn set-move-mouse-delay
+  [seconds]
+  (set-static-float org.sikuli.api.robot.desktop.AWTRobot
+                    "MoveMouseDelay"
+                    seconds))
+
+; default: 0.3
+(defn set-delay-before-drop
+  [seconds]
+  (set-static-double org.sikuli.api.robot.desktop.AWTRobot
+                     "DelayBeforeDrop"
+                     seconds))
+
+; default: 0.3
+(defn set-delay-after-drag
+  [seconds]
+  (set-static-double org.sikuli.api.robot.desktop.AWTRobot
+                     "DelayAfterDrag"
+                     seconds))
