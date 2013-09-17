@@ -14,11 +14,6 @@
   (.circle *painter* loc-or-region millis)
   loc-or-region)
 
-(defn box
-  [region millis]
-  (.box *painter* region millis)
-  region)
-
 (defn image
   [loc image millis]
   (.image *painter* loc image millis)
