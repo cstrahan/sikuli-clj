@@ -38,7 +38,7 @@
 
 (defn right-click
   [& args]
-  (.rightClick *mouse* (apply screen/location)))
+  (.rightClick *mouse* (apply screen/location args)))
 
 (defn drag
   [& args]
